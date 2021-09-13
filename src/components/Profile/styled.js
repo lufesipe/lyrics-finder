@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   display: flex;
   align-items: flex-start;
+  padding-bottom: 20px;
+  border-bottom: 1px solid ${(props) => props.theme.colors.text};
 `;
 
 export const Image = styled.img`
@@ -15,9 +17,14 @@ export const WrapperArtistProfile = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  font-family: ${(props) => props.theme.fonts.regular};
   margin-left: 25px;
   height: 200px;
+
+  h3 {
+    font-weight: bold;
+    font-size: 15px;
+    padding-top: 8px;
+  }
 `;
 
 export const WrapperArtistInfo = styled.div`
@@ -35,7 +42,7 @@ export const ArtistInstagramLink = styled.a`
   font-size: 13px;
   color: inherit;
   transition: 300ms;
-  margin-top: 8px;
+  margin-top: 3px;
 
   :hover {
     color: ${(props) => props.theme.colors.secondary};
@@ -44,4 +51,9 @@ export const ArtistInstagramLink = styled.a`
 
 export const WrapperSongCards = styled.div`
   display: flex;
+  justify-content: space-between;
+  width: 300px;
+  padding: 10px 20px;
+  border: 1px solid ${(props) => props.theme.colors.text};
+  border-radius: 10px;
 `;
