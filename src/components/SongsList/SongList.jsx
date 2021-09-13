@@ -2,9 +2,9 @@ import React from 'react';
 
 import * as S from './styled';
 
-const SongsList = ({ id, title, songUrl }) => (
+const SongsList = ({ songId, title, songUrl }) => (
   <S.List>
-    <S.SongItem key={id}>
+    <S.SongItem key={songId}>
       <S.Link href={songUrl} target="_blank" rel="noreferrer">
         {title}
       </S.Link>
