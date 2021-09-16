@@ -1,6 +1,6 @@
 import React, { createContext, useState, useCallback } from 'react';
 import api from '../services/api';
-import { checkInputs, getLyrics } from '../utils';
+import { checkInputs, getLyricsByURL } from '../utils';
 
 const token = process.env.REACT_APP_ACCESS_TOKEN;
 
@@ -16,6 +16,7 @@ const GeniusProvider = ({ children }) => {
     artist: {
       artistName: undefined,
       artistImageUrl: undefined,
+      albumImageUrl: undefined,
     },
     song: {
       songName: undefined,
@@ -32,37 +33,32 @@ const GeniusProvider = ({ children }) => {
     // ** Faz a requisição dos dados inseridos para a API e guarda em results **
     const { data } = await api.get(`/search?q=${songName} ${artistName}&access_token=${token}`);
     const results = data.response.hits[0].result;
-    // eslint-disable-next-line no-console
-    console.log(results);
 
     // ** Lidando com dados não encontrados **
     if (results.length === 0) throw new Error('Não encontrado');
 
     // ** Busca a letra da música desejada **
-    const lyric = getLyrics(results.url).then((data) => {
-      console.log('data', data);
-      const lyrics = new DOMParser()
-        .parseFromString(data, 'text/html')
-        .getElementsByClassName('lyrics');
-      // .item(0).textContent;
+    const getLyric = async (url = results.url) => {
+      const lyrics = await getLyricsByURL(url);
       return lyrics;
+    };
+
+    getLyric(results.url).then((lyric) => {
+      // ** Alterando o estado com os dados recebidos **
+      setGeniusState((prevState) => ({
+        ...prevState,
+        artist: {
+          artistName: results.primary_artist.name,
+          artistImageUrl: results.primary_artist.image_url,
+          albumImageUrl: results.header_image_url,
+        },
+        song: {
+          songName: results.title,
+          songLyrics: lyric,
+        },
+      }));
     });
-    console.log('musica final', lyric);
-
-    // ** Alterando o estado com os dados recebidos **
-    setGeniusState((prevState) => ({
-      ...prevState,
-      artist: {
-        artistName: results.primary_artist.name,
-        artistImageUrl: results.primary_artist.image_url,
-      },
-      song: {
-        songName: results.title,
-        // songLyrics: lyric,
-      },
-    }));
   };
-
   const contextValue = {
     geniusState,
     getSong: useCallback((songName, artistName) => getSong(songName, artistName), []),

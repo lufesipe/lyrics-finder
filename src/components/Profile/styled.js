@@ -12,7 +12,7 @@ export const Image = styled.img`
   width: 200px;
 `;
 
-export const WrapperArtistProfile = styled.div`
+export const WrapperInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -27,11 +27,6 @@ export const WrapperArtistProfile = styled.div`
   }
 `;
 
-export const WrapperArtistInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
 export const SongName = styled.h1`
   font-weight: bold;
   font-size: 26px;
@@ -39,5 +34,10 @@ export const SongName = styled.h1`
 
 export const ArtistName = styled.h2`
   font-weight: bold;
-  font-size: 20px;
+  font-size: 18px;
+`;
+
+export const AlbumImage = styled.img`
+  width: 100px;
+  border-radius: 10px;
 `;

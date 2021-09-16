@@ -9,8 +9,8 @@ const Header = () => {
   const [artistForSearch, setArtistForSearch] = useState('');
 
   const submitGetSong = () => {
-    if (songForSearch === '') console.log('digite uma música');
-    else if (artistForSearch === '') console.log('digite um artista');
+    if (songForSearch === '') throw new Error('digite uma música');
+    else if (artistForSearch === '') throw new Error('digite um artista');
     else getSong(songForSearch, artistForSearch);
   };
 

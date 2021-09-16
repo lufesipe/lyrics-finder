@@ -9,12 +9,12 @@ const Profile = () => {
   return (
     <S.Wrapper>
       <S.Image src={geniusState.artist.artistImageUrl} alt="Artist avatar" />
-      <S.WrapperArtistProfile>
-        <S.WrapperArtistInfo>
-          <S.SongName>{geniusState.song.songName}</S.SongName>
-          <S.ArtistName>{geniusState.artist.artistName}</S.ArtistName>
-        </S.WrapperArtistInfo>
-      </S.WrapperArtistProfile>
+      <S.WrapperInfo>
+        <S.SongName>{geniusState.song.songName}</S.SongName>
+        <S.ArtistName>by {geniusState.artist.artistName}</S.ArtistName>
+        <h3>Album</h3>
+        <S.AlbumImage src={geniusState.artist.albumImageUrl} alt="Album cover" />
+      </S.WrapperInfo>
     </S.Wrapper>
   );
 };
