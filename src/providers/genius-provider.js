@@ -7,7 +7,7 @@ const token = process.env.REACT_APP_ACCESS_TOKEN;
 export const GeniusContext = createContext({
   loading: false,
   artist: {},
-  songlist: [],
+  song: {},
 });
 
 const GeniusProvider = ({ children }) => {
@@ -59,6 +59,7 @@ const GeniusProvider = ({ children }) => {
       }));
     });
   };
+
   const contextValue = {
     geniusState,
     getSong: useCallback((songName, artistName) => getSong(songName, artistName), []),

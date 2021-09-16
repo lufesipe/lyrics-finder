@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.section`
   display: flex;
   align-items: flex-start;
   padding-bottom: 20px;
@@ -12,7 +12,7 @@ export const Image = styled.img`
   width: 200px;
 `;
 
-export const WrapperInfo = styled.div`
+export const WrapperInfo = styled.section`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
