@@ -2,9 +2,9 @@ import { useContext } from 'react';
 import { GeniusContext } from '../providers/genius-provider';
 
 const useGenius = () => {
-  const { geniusState } = useContext(GeniusContext);
+  const { geniusState, getSong } = useContext(GeniusContext);
 
-  return { geniusState };
+  return { geniusState, getSong };
 };
 
 export default useGenius;

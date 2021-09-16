@@ -32,28 +32,12 @@ export const WrapperArtistInfo = styled.div`
   flex-direction: column;
 `;
 
-export const ArtistName = styled.h1`
+export const SongName = styled.h1`
   font-weight: bold;
   font-size: 26px;
 `;
 
-export const ArtistInstagramLink = styled.a`
-  text-decoration: none;
-  font-size: 13px;
-  color: inherit;
-  transition: 300ms;
-  margin-top: 3px;
-
-  :hover {
-    color: ${(props) => props.theme.colors.secondary};
-  }
-`;
-
-export const WrapperSongCards = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 300px;
-  padding: 10px 20px;
-  border: 1px solid ${(props) => props.theme.colors.text};
-  border-radius: 10px;
+export const ArtistName = styled.h2`
+  font-weight: bold;
+  font-size: 20px;
 `;
