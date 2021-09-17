@@ -20,7 +20,7 @@ const GeniusProvider = ({ children }) => {
     },
     song: {
       songName: undefined,
-      songLyrics: undefined,
+      songLyrics: [],
     },
   });
 
@@ -40,7 +40,9 @@ const GeniusProvider = ({ children }) => {
     // ** Busca a letra da música desejada **
     const getLyric = async (url = results.url) => {
       const lyrics = await getLyricsByURL(url);
-      return lyrics;
+      const splitedLyrics = lyrics.replace(/\[/g, '§[').replace(/\]/g, ']§').split('§');
+      // console.log(splitedLyrics);
+      return splitedLyrics;
     };
 
     getLyric(results.url).then((lyric) => {

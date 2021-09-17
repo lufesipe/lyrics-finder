@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Reset } from 'styled-reset';
-import { Layout, Profile, LyricContainer } from './components';
+import { Layout, Profile, LyricsContainer } from './components';
 import GeniusProvider from './providers/genius-provider';
 
 import theme from './theme';
@@ -12,7 +12,7 @@ const App = () => (
       <Reset />
       <Layout>
         <Profile />
-        <LyricContainer />
+        <LyricsContainer />
       </Layout>
     </ThemeProvider>
   </GeniusProvider>

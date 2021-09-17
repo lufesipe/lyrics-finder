@@ -1,6 +1,7 @@
 import React from 'react';
-import * as S from './styled';
 import { Header } from '../index';
+
+import * as S from './styled';
 
 const Layout = ({ children }) => (
   <S.WrapperLayout>

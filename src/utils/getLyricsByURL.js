@@ -12,9 +12,9 @@ const getLyricsByURL = async (url) => {
       if ($(elem).text().length !== 0) {
         const snippet = $(elem)
           .html()
-          .replace(/<br>/g, '\n')
+          .replace(/<br>/g, '¬')
           .replace(/<(?!\s*br\s*\/?)[^>]+>/gi, '');
-        lyrics += `${$('<textarea/>').html(snippet).text().trim()}\n\n`;
+        lyrics += `${$('<textarea/>').html(snippet).text().trim()}`;
       }
     });
   }

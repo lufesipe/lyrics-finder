@@ -7,7 +7,7 @@ export const Wrapper = styled.section`
   height: 100%;
 `;
 
-export const WrapperLyric = styled.main`
+export const WrapperLyrics = styled.main`
   display: flex;
   flex-direction: column;
   margin-top: 20px;
