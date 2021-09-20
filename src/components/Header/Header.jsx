@@ -16,7 +16,6 @@ const Header = () => {
 
   return (
     <S.Wrapper>
-      {/* <h1>Para encontrar uma música, digite o nome da música e o nome do artista!</h1> */}
       <input
         type="text"
         placeholder="Digite o nome da música..."

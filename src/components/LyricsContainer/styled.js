@@ -11,5 +11,5 @@ export const WrapperLyrics = styled.main`
   display: flex;
   flex-direction: column;
   margin-top: 20px;
-  width: 550px;
+  max-width: 550px;
 `;

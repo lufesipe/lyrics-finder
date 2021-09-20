@@ -7,15 +7,15 @@ import GeniusProvider from './providers/genius-provider';
 import theme from './theme';
 
 const App = () => (
-  <GeniusProvider>
-    <ThemeProvider theme={theme}>
+  <ThemeProvider theme={theme}>
+    <GeniusProvider>
       <Reset />
       <Layout>
         <Profile />
         <LyricsContainer />
       </Layout>
-    </ThemeProvider>
-  </GeniusProvider>
+    </GeniusProvider>
+  </ThemeProvider>
 );
 
 export default App;

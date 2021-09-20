@@ -12,6 +12,7 @@ export const GeniusContext = createContext({
 
 const GeniusProvider = ({ children }) => {
   const [geniusState, setGeniusState] = useState({
+    hasUser: false,
     loading: false,
     artist: {
       artistName: undefined,
@@ -26,6 +27,11 @@ const GeniusProvider = ({ children }) => {
 
   // ** Requisição para busca de música e artista inseridos com validação de inserção dos dados **
   const getSong = async (songName, artistName) => {
+    setGeniusState((prevState) => ({
+      ...prevState,
+      loading: !prevState.loading,
+    }));
+
     // ** Checa se os valores de input foram preenchidos **
     const inputValues = { song: songName, artist: artistName };
     checkInputs(inputValues);
@@ -45,21 +51,29 @@ const GeniusProvider = ({ children }) => {
       return splitedLyrics;
     };
 
-    getLyric(results.url).then((lyric) => {
-      // ** Alterando o estado com os dados recebidos **
-      setGeniusState((prevState) => ({
-        ...prevState,
-        artist: {
-          artistName: results.primary_artist.name,
-          artistImageUrl: results.primary_artist.image_url,
-          albumImageUrl: results.header_image_url,
-        },
-        song: {
-          songName: results.title,
-          songLyrics: lyric,
-        },
-      }));
-    });
+    getLyric(results.url)
+      .then((lyric) => {
+        // ** Alterando o estado com os dados recebidos **
+        setGeniusState((prevState) => ({
+          ...prevState,
+          hasUser: true,
+          artist: {
+            artistName: results.primary_artist.name,
+            artistImageUrl: results.primary_artist.image_url,
+            albumImageUrl: results.header_image_url,
+          },
+          song: {
+            songName: results.title,
+            songLyrics: lyric,
+          },
+        }));
+      })
+      .finally(() => {
+        setGeniusState((prevState) => ({
+          ...prevState,
+          loading: !prevState.loading,
+        }));
+      });
   };
 
   const contextValue = {

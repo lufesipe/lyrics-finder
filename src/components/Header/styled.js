@@ -38,4 +38,31 @@ export const Wrapper = styled.header`
       cursor: pointer;
     }
   }
+
+  @media (max-width: 650px) {
+    flex-direction: column;
+
+    input {
+      width: 268.5px;
+
+      &:nth-child(2) {
+        margin-left: 0px;
+        margin-top: 10px;
+        border-radius: 8px;
+      }
+    }
+
+    button {
+      width: 268.5px;
+      border-radius: 8px;
+      padding: 0px 16px;
+      margin: 0;
+      margin-top: 10px;
+
+      &:hover {
+        background-color: ${(props) => props.theme.colors.secondary};
+        cursor: pointer;
+      }
+    }
+  }
 `;
