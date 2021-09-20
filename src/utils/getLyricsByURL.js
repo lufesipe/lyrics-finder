@@ -1,3 +1,5 @@
+// ** Faz a requisição da página da música completa e extrai as letras através da classe **
+// ** O tratamento dos dados é feito de acordo com o retorno **
 import axios from 'axios';
 
 const cio = require('cheerio-without-node-native');
