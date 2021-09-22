@@ -97,7 +97,7 @@ Projeto desenvolvido por Luiz Felipe, abaixo deixo meu Github com alguns projeto
 
 Github - [lufesipe](https://github.com/lufesipe)
 
-LinkedIn - [Luiz Felipe](www.linkedin.com/in/luiz-felipe-sp)
+LinkedIn - [Luiz Felipe](https://www.linkedin.com/in/luiz-felipe-sp)
 
 Email - [luizfspereira@outlook.com](mailto:luizfspereira@outlook.com)
 
